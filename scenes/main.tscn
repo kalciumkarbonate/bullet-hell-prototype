@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cnqov4voew28u"]
+
+[ext_resource type="Script" uid="uid://ch74mxvvd4m4s" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://da2wfmv6j5gf4" path="res://scenes/player.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://di6ho1n1hy6ck" path="res://scenes/bullet_spawner.tscn" id="3_sugp2"]
+
+[node name="Main" type="Node" unique_id=831400412]
+script = ExtResource("1_o5qli")
+
+[node name="Player" parent="." unique_id=1535431632 instance=ExtResource("2_0wfyh")]
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=955355055]
+
+[node name="BulletSpawner" parent="." unique_id=1107474825 instance=ExtResource("3_sugp2")]
+
+[connection signal="shoot" from="BulletSpawner" to="." method="_on_bullet_spawner_shoot"]
