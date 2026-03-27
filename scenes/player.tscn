@@ -2,16 +2,30 @@
 
 [ext_resource type="Script" uid="uid://cgu2hm5ogbeg4" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="Texture2D" uid="uid://bpa144ly1y28j" path="res://assets/characters/sprite_0.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://bjlgp42bi76pl" path="res://assets/bullets/circle_0.png" id="3_qhqgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8vuu"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(4, 4)
 
-[node name="Player" type="Area2D" unique_id=1535431632]
+[node name="Player" type="CharacterBody2D" unique_id=2064826729]
 script = ExtResource("1_3vyb7")
 speed = 100.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=789485710]
 texture = ExtResource("2_g2els")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1482009522]
+texture = ExtResource("3_qhqgy")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=950807565]
 shape = SubResource("RectangleShape2D_u8vuu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=925903849]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1261228739]
+shape = SubResource("RectangleShape2D_g2els")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

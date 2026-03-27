@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BulletArrayData" format=3 uid="uid://bi3qrspq4lett"]
+
+[ext_resource type="Script" uid="uid://bsgxayej6hnna" path="res://bullet_array.gd" id="1_hebci"]
+
+[resource]
+script = ExtResource("1_hebci")
+array_coverage = 360.0
+bullet_amount = 2
+bullet_coverage = 40.0
+array_amount = 3
+rotation_per_array = 15.0
+spawn_distance = 15.0
+metadata/_custom_type_script = "uid://bsgxayej6hnna"

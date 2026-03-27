@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://da2wfmv6j5gf4" path="res://scenes/player.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://di6ho1n1hy6ck" path="res://scenes/bullet_spawner.tscn" id="3_sugp2"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_sugp2"]
+
 [node name="Main" type="Node" unique_id=831400412]
 script = ExtResource("1_o5qli")
 
@@ -12,5 +14,52 @@ script = ExtResource("1_o5qli")
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=955355055]
 
 [node name="BulletSpawner" parent="." unique_id=1107474825 instance=ExtResource("3_sugp2")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2107683774]
+position = Vector2(-300, 0)
+rotation = 1.5707964
+
+[node name="Line2D" type="Line2D" parent="StaticBody2D" unique_id=980851787]
+position = Vector2(-1.3113417e-05, -300)
+rotation = -1.5707964
+points = PackedVector2Array(-300, 500, -300, -500)
+width = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=111916477]
+shape = SubResource("WorldBoundaryShape2D_sugp2")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=517171986]
+position = Vector2(300, 0)
+rotation = -1.5707964
+
+[node name="Line2D2" type="Line2D" parent="StaticBody2D2" unique_id=822429481]
+position = Vector2(1.3113417e-05, -300)
+rotation = 1.5707964
+points = PackedVector2Array(300, -500, 300, 500)
+width = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=304472906]
+shape = SubResource("WorldBoundaryShape2D_sugp2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=41617877]
+position = Vector2(0, 500)
+
+[node name="Line2D2" type="Line2D" parent="StaticBody2D3" unique_id=601457809]
+points = PackedVector2Array(-300, 0, 300, 0)
+width = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=2032223923]
+shape = SubResource("WorldBoundaryShape2D_sugp2")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1175191403]
+position = Vector2(0, -500)
+rotation = 3.1415927
+
+[node name="Line2D2" type="Line2D" parent="StaticBody2D4" unique_id=485117629]
+points = PackedVector2Array(-300, 0, 300, 0)
+width = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=1546376979]
+shape = SubResource("WorldBoundaryShape2D_sugp2")
 
 [connection signal="shoot" from="BulletSpawner" to="." method="_on_bullet_spawner_shoot"]

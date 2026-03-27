@@ -1,21 +1,24 @@
 [gd_scene format=3 uid="uid://di6ho1n1hy6ck"]
 
 [ext_resource type="Script" uid="uid://davsb22tg753f" path="res://scripts/bullet_spawner.gd" id="1_oc6tw"]
+[ext_resource type="Script" uid="uid://bsgxayej6hnna" path="res://bullet_array.gd" id="2_d4esm"]
 [ext_resource type="Texture2D" uid="uid://bi5roa5yaiphx" path="res://assets/characters/sprite_1.png" id="3_2m45o"]
+
+[sub_resource type="Resource" id="Resource_2m45o"]
+script = ExtResource("2_d4esm")
+array_coverage = 30.0
+array_amount = 4
+bullet_amount = 8
+bullet_coverage = 30.0
+rotation_per_array = 15.0
+spawn_distance = 60.0
+shot_intermission = 0.1
+metadata/_custom_type_script = "uid://bsgxayej6hnna"
 
 [node name="BulletSpawner" type="Node2D" unique_id=1107474825]
 script = ExtResource("1_oc6tw")
+bullet_array_array = Array[ExtResource("2_d4esm")]([SubResource("Resource_2m45o")])
+array_amount = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1615068377]
 texture = ExtResource("3_2m45o")
-
-[node name="Timer" type="Timer" parent="." unique_id=1577530439]
-wait_time = 0.1
-autostart = true
-
-[node name="Timer2" type="Timer" parent="." unique_id=1703233755]
-wait_time = 5.0
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
